@@ -1,11 +1,11 @@
 import XCTest
-@testable import CoreLibrary
+@testable import DGCCoreLibrary
 
 final class DGCCoreLibraryTests: XCTestCase {
     func testExample() throws {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
-        //XCTAssertEqual(CoreLibrary().text, "Hello, World!")
+        //XCTAssertEqual(DGCCoreLibrary().text, "Hello, World!")
     }
 }

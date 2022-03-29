@@ -1,5 +1,5 @@
 
-public class CoreLibrary {
+public class DGCCoreLibrary {
 
     public init() {
     }

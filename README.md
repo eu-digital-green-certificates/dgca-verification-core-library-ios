@@ -1,3 +1,3 @@
-# CoreLibrary
+# DGCCoreLibrary
 
 A description of this package.
