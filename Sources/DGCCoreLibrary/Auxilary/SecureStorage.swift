@@ -33,8 +33,9 @@ public enum DataOperationError: Error {
   case dataError(description: String)
 }
 public enum DataOperationResult {
-  case success(Bool)
-  case failure(Error)
+    case nodata
+    case success
+    case failure(DataOperationError)
 }
 
 public typealias DataCompletionHandler = (DataOperationResult) -> Void
@@ -125,7 +126,7 @@ public class SecureStorage<T: Codable> {
         do {
             let rawData = try JSONEncoder().encode(SecureDB(data: data, signature: signature))
             try rawData.write(to: databaseURL)
-            completion(.success(true))
+            completion(.success)
         } catch {
             completion(.failure(DataOperationError.encodindFailure))
             return
