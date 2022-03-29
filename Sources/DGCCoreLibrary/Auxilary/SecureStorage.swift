@@ -33,7 +33,7 @@ public enum DataOperationError: Error {
   case dataError(description: String)
 }
 public enum DataOperationResult {
-    case nodata
+    case noData
     case success
     case failure(DataOperationError)
 }
