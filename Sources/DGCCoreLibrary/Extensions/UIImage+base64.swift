@@ -15,14 +15,14 @@ public extension UIImage {
             context: nil, options: [CIDetectorAccuracy: CIDetectorAccuracyHigh]),
             let ciImage = CIImage(image: self),
             let features = detector.features(in: ciImage) as? [CIQRCodeFeature] else {
-          return qrAsString
-      }
+                return qrAsString
+            }
         
-      for feature in features {
-          guard let indeedMessageString = feature.messageString else { continue }
-          qrAsString += indeedMessageString
-      }
-      return qrAsString.isEmpty ? nil : qrAsString
+        for feature in features {
+            guard let indeedMessageString = feature.messageString else { continue }
+            qrAsString += indeedMessageString
+        }
+        return qrAsString.isEmpty ? nil : qrAsString
     }
     
     func convertImageToBase64String () -> String {
