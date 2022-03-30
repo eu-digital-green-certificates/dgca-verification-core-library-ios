@@ -26,8 +26,8 @@
 
 import Foundation
 
-extension Data {
-    public init?(hexString: String) {
+public extension Data {
+    init?(hexString: String) {
         let len = hexString.count / 2
         var data = Data(capacity: len)
         var numX = hexString.startIndex
@@ -44,8 +44,8 @@ extension Data {
         self = data
     }
 
-    public var uint: [UInt8] { [UInt8](self) }
-    public var hexString: String {
+    var uint: [UInt8] { [UInt8](self) }
+    var hexString: String {
         let format = "%02hhx"
         return self.map { String(format: format, $0) }.joined()
     }
