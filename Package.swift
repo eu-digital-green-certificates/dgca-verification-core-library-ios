@@ -16,11 +16,9 @@ let package = Package(
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
-        .package(url: "https://github.com/SwiftyJSON/SwiftyJSON", from: "5.0.1"),
-        .package(url: "https://github.com/filom/ASN1Decoder", from: "1.7.1"),
-        .package( name: "SwiftCBOR", url: "https://github.com/eu-digital-green-certificates/SwiftCBOR",
-          .branch("master")
-        )
+        .package(name: "SwiftyJSON", url: "https://github.com/SwiftyJSON/SwiftyJSON", from: "5.0.1"),
+        .package(name: "ASN1Decoder", url: "https://github.com/filom/ASN1Decoder", from: "1.7.1"),
+        .package( name: "SwiftCBOR", url: "https://github.com/eu-digital-green-certificates/SwiftCBOR", .branch("master") )
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
