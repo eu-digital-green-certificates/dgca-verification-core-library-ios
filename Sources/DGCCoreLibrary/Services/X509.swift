@@ -38,8 +38,7 @@ public class X509 {
     public static func pubKey(from b64EncodedCert: String) -> SecKey? {
       guard let encodedCertData = Data(base64Encoded: b64EncodedCert),
         let cert = SecCertificateCreateWithData(nil, encodedCertData as CFData),
-        let publicKey = SecCertificateCopyKey(cert)
-      else { return nil }
+        let publicKey = SecCertificateCopyKey(cert) else { return nil }
       return publicKey
     }
     
@@ -51,7 +50,6 @@ public class X509 {
     public static func derKey(for secKey: SecKey) -> Data? {
       var error: Unmanaged<CFError>?
       guard let publicKeyData = SecKeyCopyExternalRepresentation(secKey, &error) else { return nil }
-        
       return exportECPublicKeyToDER(publicKeyData as Data, keyType: kSecAttrKeyTypeEC as String, keySize: 384)
     }
     
@@ -96,38 +94,5 @@ public class X509 {
         || nil != certificate.extensionObject(oid: OID_ALT_TEST)
         || nil != certificate.extensionObject(oid: OID_ALT_VACCINATION)
         || nil != certificate.extensionObject(oid: OID_ALT_RECOVERY)
-    }
-
-    static func checkisSuitable(cert: String, certType: HCertType) -> Bool{
-        return isSuitable(cert: Data(base64Encoded:  cert)!, for: certType)
-    }
-
-    static func isCertificateValid(cert: String) -> Bool {
-        guard let data = Data(base64Encoded:  cert) else { return true }
-        guard let certificate = try? X509Certificate(data: data) else { return false }
-      
-        if (certificate.notAfter ?? Date()) > Date() {
-          return true
-        } else {
-          return false
-        }
-    }
-
-    static func isSuitable(cert: Data,for certType: HCertType) -> Bool {
-      guard let certificate = try? X509Certificate(data: cert) else { return false }
-        
-      if isType(in: certificate) {
-        switch certType {
-        case .test:
-          return nil != certificate.extensionObject(oid: OID_TEST) || nil != certificate.extensionObject(oid: OID_ALT_TEST)
-        case .vaccine:
-          return nil != certificate.extensionObject(oid: OID_VACCINATION) || nil != certificate.extensionObject(oid: OID_ALT_VACCINATION)
-        case .recovery:
-          return nil != certificate.extensionObject(oid: OID_RECOVERY) || nil != certificate.extensionObject(oid: OID_ALT_RECOVERY)
-        case .unknown:
-          return false
-        }
-      }
-      return true
     }
 }
