@@ -28,12 +28,12 @@ import Foundation
 import ASN1Decoder
 
 public class X509 {
-    static let OID_TEST = "1.3.6.1.4.1.1847.2021.1.1"
-    static let OID_ALT_TEST = "1.3.6.1.4.1.0.1847.2021.1.1"
-    static let OID_VACCINATION = "1.3.6.1.4.1.1847.2021.1.2"
-    static let OID_ALT_VACCINATION = "1.3.6.1.4.1.0.1847.2021.1.2"
-    static let OID_RECOVERY = "1.3.6.1.4.1.1847.2021.1.3"
-    static let OID_ALT_RECOVERY = "1.3.6.1.4.1.0.1847.2021.1.3"
+    public static let OID_TEST = "1.3.6.1.4.1.1847.2021.1.1"
+    public static let OID_ALT_TEST = "1.3.6.1.4.1.0.1847.2021.1.1"
+    public static let OID_VACCINATION = "1.3.6.1.4.1.1847.2021.1.2"
+    public static let OID_ALT_VACCINATION = "1.3.6.1.4.1.0.1847.2021.1.2"
+    public static let OID_RECOVERY = "1.3.6.1.4.1.1847.2021.1.3"
+    public static let OID_ALT_RECOVERY = "1.3.6.1.4.1.0.1847.2021.1.3"
 
     public static func pubKey(from b64EncodedCert: String) -> SecKey? {
       guard let encodedCertData = Data(base64Encoded: b64EncodedCert),
