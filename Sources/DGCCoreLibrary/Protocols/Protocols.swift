@@ -8,5 +8,6 @@
 import Foundation
 
 public protocol CertificateInspection {
-    func verifyCert()
+    public func prepareLocallyStoredData(appType: AppType, completion: @escaping DataCompletionHandler)
+    public func updateLocallyStoredData(appType: AppType, completion: @escaping DataCompletionHandler)
 }
