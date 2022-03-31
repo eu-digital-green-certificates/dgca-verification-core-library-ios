@@ -27,7 +27,6 @@
 import Foundation
 
 public enum AppType: Int {
-    case all
     case verifier
     case wallet
 }
