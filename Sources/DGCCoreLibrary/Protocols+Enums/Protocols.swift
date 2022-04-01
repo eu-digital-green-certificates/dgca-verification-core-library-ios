@@ -46,5 +46,5 @@ public protocol CertificateApplication {
     
     var cryptographicallyValid: Bool { get }
     
-    init(from payload: String, ruleCountryCode: String)
+    init(payload: String, ruleCountryCode: String?)
 }
