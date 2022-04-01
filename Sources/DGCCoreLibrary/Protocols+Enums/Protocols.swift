@@ -30,3 +30,21 @@ public protocol CertificateInspection {
     func prepareLocallyStoredData(appType: AppType, completion: @escaping DataCompletionHandler)
     func updateLocallyStoredData(appType: AppType, completion: @escaping DataCompletionHandler)
 }
+
+public protocol CertificateApplication {
+    var dateOfBirth: String { get }
+    
+    var firstName: String { get }
+    
+    var firstNameStandardized: String { get }
+    
+    var lastName: String { get }
+    
+    var lastNameStandardized: String { get }
+
+    var fullName: String { get }
+    
+    var cryptographicallyValid: Bool { get }
+    
+    init(from payload: String, ruleCountryCode: String? = nil)
+}
