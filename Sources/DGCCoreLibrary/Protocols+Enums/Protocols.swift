@@ -31,7 +31,7 @@ public protocol CertificateInspection {
     func updateLocallyStoredData(appType: AppType, completion: @escaping DataCompletionHandler)
 }
 
-public protocol MultyTypeCertificate {
+public protocol MultiTypeCertificate {
     var dateOfBirth: String { get }
     
     var firstName: String { get }
