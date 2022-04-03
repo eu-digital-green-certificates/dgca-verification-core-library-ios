@@ -29,7 +29,7 @@ import Foundation
 public protocol CertificateInspection {
     func prepareLocallyStoredData(appType: AppType, completion: @escaping DataCompletionHandler)
     func updateLocallyStoredData(appType: AppType, completion: @escaping DataCompletionHandler)
-    func validateCertificate(_ certificate: MultiTypeCertificate) -> VerificationProtocol
+    func validateCertificate(_ certificate: CertificationProtocol) -> VerificationProtocol
 }
 
 public protocol CertificationProtocol {
@@ -51,16 +51,15 @@ public protocol CertificationProtocol {
 }
 
 public protocol VerificationProtocol {
-    let technicalValidity: CertificateVerificationResult
-    let issuerValidity: CertificateVerificationResult
-    let destinationValidity: CertificateVerificationResult
-    let travalerValidity: CertificateVerificationResult
-    let allRulesValidity: CertificateVerificationResult
-    let revocationValidity: CertificateVerificationResult
-    let validityFailures: [String]
-    
+    var technicalValidity: CertificateVerificationResult { get }
+    var issuerValidity: CertificateVerificationResult { get }
+    var destinationValidity: CertificateVerificationResult { get }
+    var travalerValidity: CertificateVerificationResult { get }
+    var allRulesValidity: CertificateVerificationResult { get }
+    var revocationValidity: CertificateVerificationResult { get }
+    var validityFailures: [String] { get }
     var isVerificationFailed: Bool { get }
-    var isRevoked: Bool
+    var isRevoked: Bool { get }
     
     init(
         technicalValidity: CertificateVerificationResult,
