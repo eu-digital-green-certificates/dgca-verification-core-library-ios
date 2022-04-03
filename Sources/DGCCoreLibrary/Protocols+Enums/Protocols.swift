@@ -51,26 +51,25 @@ public protocol CertificationProtocol {
 }
 
 public protocol VerificationProtocol {
-    let technicalValidity: CertificateVerificationResult { get }
-    let issuerValidity: CertificateVerificationResult { get }
-    let destinationValidity: CertificateVerificationResult { get }
-    let travalerValidity: CertificateVerificationResult { get }
-    let allRulesValidity: CertificateVerificationResult { get }
-    let revocationValidity: CertificateVerificationResult { get }
-    let validityFailures: [String] { get }
+    let technicalValidity: CertificateVerificationResult
+    let issuerValidity: CertificateVerificationResult
+    let destinationValidity: CertificateVerificationResult
+    let travalerValidity: CertificateVerificationResult
+    let allRulesValidity: CertificateVerificationResult
+    let revocationValidity: CertificateVerificationResult
+    let validityFailures: [String]
     
     var isVerificationFailed: Bool { get }
-    var isRevoked: Bool { get }
+    var isRevoked: Bool
     
     init(
-}       technicalValidity: CertificateVerificationResult,
+        technicalValidity: CertificateVerificationResult,
         issuerValidity: CertificateVerificationResult,
         destinationValidity: CertificateVerificationResult,
         travalerValidity: CertificateVerificationResult,
         allRulesValidity: CertificateVerificationResult,
         revocationValidity: CertificateVerificationResult,
         validityFailures: [String],
-
-        isVerificationPassed: Bool,
         isRevoked: Bool
     )
+}
