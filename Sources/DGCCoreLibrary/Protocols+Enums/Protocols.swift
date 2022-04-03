@@ -56,7 +56,6 @@ public protocol VerificationProtocol {
     var destinationValidity: CertificateVerificationResult { get }
     var travalerValidity: CertificateVerificationResult { get }
     var allRulesValidity: CertificateVerificationResult { get }
-    var revocationValidity: CertificateVerificationResult { get }
     var validityFailures: [String] { get }
     var isVerificationFailed: Bool { get }
     var isRevoked: Bool { get }
@@ -67,7 +66,6 @@ public protocol VerificationProtocol {
         destinationValidity: CertificateVerificationResult,
         travalerValidity: CertificateVerificationResult,
         allRulesValidity: CertificateVerificationResult,
-        revocationValidity: CertificateVerificationResult,
         validityFailures: [String],
         isRevoked: Bool
     )
