@@ -29,6 +29,7 @@ import Foundation
 public protocol CertificateInspection {
     func prepareLocallyStoredData(appType: AppType, completion: @escaping DataCompletionHandler)
     func updateLocallyStoredData(appType: AppType, completion: @escaping DataCompletionHandler)
+    func validateCertificate(_ certificate: MultiTypeCertificate) -> VerificationProtocol
 }
 
 public protocol CertificationProtocol {
@@ -48,3 +49,28 @@ public protocol CertificationProtocol {
     
     init(payload: String, ruleCountryCode: String?) throws
 }
+
+public protocol VerificationProtocol {
+    let technicalValidity: CertificateVerificationResult { get }
+    let issuerValidity: CertificateVerificationResult { get }
+    let destinationValidity: CertificateVerificationResult { get }
+    let travalerValidity: CertificateVerificationResult { get }
+    let allRulesValidity: CertificateVerificationResult { get }
+    let revocationValidity: CertificateVerificationResult { get }
+    let validityFailures: [String] { get }
+    
+    var isVerificationFailed: Bool { get }
+    var isRevoked: Bool { get }
+    
+    init(
+}       technicalValidity: CertificateVerificationResult,
+        issuerValidity: CertificateVerificationResult,
+        destinationValidity: CertificateVerificationResult,
+        travalerValidity: CertificateVerificationResult,
+        allRulesValidity: CertificateVerificationResult,
+        revocationValidity: CertificateVerificationResult,
+        validityFailures: [String],
+
+        isVerificationPassed: Bool,
+        isRevoked: Bool
+    )

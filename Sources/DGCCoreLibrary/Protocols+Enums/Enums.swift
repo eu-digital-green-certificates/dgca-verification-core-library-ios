@@ -30,3 +30,9 @@ public enum AppType: Int {
     case verifier
     case wallet
 }
+
+public enum CertificateVerificationResult {
+    case valid
+    case invalid
+    case partlyValid
+}
