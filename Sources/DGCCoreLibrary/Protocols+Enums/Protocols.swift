@@ -58,7 +58,7 @@ public protocol VerificationProtocol {
     var allRulesValidity: VerificationResult { get }
     var validityFailures: [String] { get }
     var isVerificationFailed: Bool { get }
-    var infoSection: InfoSection { get }
+    var infoSection: InfoSection? { get }
     var isRevoked: Bool { get }
     
     init(
@@ -68,7 +68,7 @@ public protocol VerificationProtocol {
         travalerValidity: VerificationResult,
         allRulesValidity: VerificationResult,
         validityFailures: [String],
-        infoSection: InfoSection,
+        infoSection: InfoSection?,
         isRevoked: Bool
     )
 }
