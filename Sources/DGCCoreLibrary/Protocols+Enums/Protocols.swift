@@ -60,6 +60,7 @@ public protocol VerificationProtocol {
     var isVerificationFailed: Bool { get }
     var infoSection: InfoSection? { get }
     var isRevoked: Bool { get }
+    var temp: Int {get}
     
     init(
         technicalValidity: VerificationResult,
@@ -69,6 +70,7 @@ public protocol VerificationProtocol {
         allRulesValidity: VerificationResult,
         validityFailures: [String],
         infoSection: InfoSection?,
-        isRevoked: Bool
+        isRevoked: Bool,
+        temp: Int
     )
 }
