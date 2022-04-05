@@ -36,3 +36,31 @@ public enum VerificationResult {
     case invalid
     case partlyValid
 }
+
+public enum AttributeKey: String {
+  case firstName
+  case lastName
+  case firstNameStandardized
+  case lastNameStandardized
+  case gender
+  case dateOfBirth
+  case testStatements
+  case vaccineStatements
+  case recoveryStatements
+}
+
+public let attributeKeys: [AttributeKey: [String]] = [
+  .firstName: ["nam", "gn"],
+  .lastName: ["nam", "fn"],
+  .firstNameStandardized: ["nam", "gnt"],
+  .lastNameStandardized: ["nam", "fnt"],
+  .dateOfBirth: ["dob"],
+  .testStatements: ["t"],
+  .vaccineStatements: ["v"],
+  .recoveryStatements: ["r"]
+]
+
+public enum InfoSectionStyle {
+  case normal
+  case fixedWidthFont
+}
