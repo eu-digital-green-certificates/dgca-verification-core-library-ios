@@ -68,7 +68,7 @@ public protocol VerificationProtocol {
         travalerValidity: VerificationResult,
         allRulesValidity: VerificationResult,
         validityFailures: [String],
-        infoSection: infoSection,
+        infoSection: InfoSection,
         isRevoked: Bool
     )
 }
