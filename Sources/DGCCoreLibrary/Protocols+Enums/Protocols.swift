@@ -50,7 +50,7 @@ public protocol CertificationProtocol {
     init(payload: String, ruleCountryCode: String?) throws
 }
 
-public protocol VerificationProtocol {
+public protocol CertificateVerifying {
     var technicalValidity: VerificationResult { get }
     var issuerValidity: VerificationResult { get }
     var destinationValidity: VerificationResult { get }
