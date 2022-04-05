@@ -51,21 +51,21 @@ public protocol CertificationProtocol {
 }
 
 public protocol VerificationProtocol {
-    var technicalValidity: CertificateVerificationResult { get }
-    var issuerValidity: CertificateVerificationResult { get }
-    var destinationValidity: CertificateVerificationResult { get }
-    var travalerValidity: CertificateVerificationResult { get }
-    var allRulesValidity: CertificateVerificationResult { get }
+    var technicalValidity: VerificationResult { get }
+    var issuerValidity: VerificationResult { get }
+    var destinationValidity: VerificationResult { get }
+    var travalerValidity: VerificationResult { get }
+    var allRulesValidity: VerificationResult { get }
     var validityFailures: [String] { get }
     var isVerificationFailed: Bool { get }
     var isRevoked: Bool { get }
     
     init(
-        technicalValidity: CertificateVerificationResult,
-        issuerValidity: CertificateVerificationResult,
-        destinationValidity: CertificateVerificationResult,
-        travalerValidity: CertificateVerificationResult,
-        allRulesValidity: CertificateVerificationResult,
+        technicalValidity: VerificationResult,
+        issuerValidity: VerificationResult,
+        destinationValidity: VerificationResult,
+        travalerValidity: VerificationResult,
+        allRulesValidity: VerificationResult,
         validityFailures: [String],
         isRevoked: Bool
     )
