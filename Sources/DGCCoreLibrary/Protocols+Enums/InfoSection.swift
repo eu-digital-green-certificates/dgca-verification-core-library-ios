@@ -37,7 +37,8 @@ public class InfoSection {
     public let ruleValidationResult: VerificationResult
 
     public init(header: String, content: String, style: InfoSectionStyle = .normal,
-            isPrivate: Bool = false,  countryName: String? = nil, ruleValidationResult: VerificationResult = .partlyValid) {
+            isPrivate: Bool = false,  countryName: String? = nil,
+            ruleValidationResult: VerificationResult = .partlyValid) {
         self.header = header
         self.content = content
         self.countryName = countryName
