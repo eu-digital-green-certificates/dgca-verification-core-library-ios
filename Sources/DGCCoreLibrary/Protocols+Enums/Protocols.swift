@@ -29,7 +29,7 @@ import Foundation
 public protocol CertificateInspection {
     func prepareLocallyStoredData(appType: AppType, completion: @escaping DataCompletionHandler)
     func updateLocallyStoredData(appType: AppType, completion: @escaping DataCompletionHandler)
-    func validateCertificate(_ certificate: CertificationProtocol) -> CertificateVerifying
+    func validateCertificate(_ certificate: CertificationProtocol) -> VerifyingProtocol
 }
 
 public protocol CertificationProtocol {
