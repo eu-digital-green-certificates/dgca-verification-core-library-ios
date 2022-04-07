@@ -50,9 +50,7 @@ public protocol CertificationProtocol {
     var isRevoked: Bool { get set }
     
     var certTypeString: String { get }
-    
-    var cryptographicallyValid: Bool { get }
-    
+        
     var certHash: String { get }
     
     var uvciHash: Data? { get }
