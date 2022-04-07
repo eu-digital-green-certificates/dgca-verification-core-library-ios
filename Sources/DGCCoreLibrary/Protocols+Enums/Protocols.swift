@@ -47,6 +47,18 @@ public protocol CertificationProtocol {
     
     var cryptographicallyValid: Bool { get }
     
+    var isRevoked: Bool { get set }
+    
+    var certTypeString: String { get }
+    
+    var cryptographicallyValid: Bool { get }
+    
+    var certHash: String { get }
+    
+    var uvciHash: Data? { get }
+    var countryCodeUvciHash: Data? { get }
+    var signatureHash: Data? { get }
+    
     init(payload: String, ruleCountryCode: String?) throws
 }
 
