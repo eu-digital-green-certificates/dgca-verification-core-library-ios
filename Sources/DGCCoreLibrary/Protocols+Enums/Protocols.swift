@@ -54,7 +54,7 @@ public protocol CertificationProtocol {
         
     var certHash: String { get }
     
-    public let body: JSON { get }
+    var body: JSON { get }
     
     var uvciHash: Data? { get }
     var countryCodeUvciHash: Data? { get }
