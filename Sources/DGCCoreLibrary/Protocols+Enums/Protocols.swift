@@ -25,6 +25,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 public protocol CertificateInspection {
     func prepareLocallyStoredData(appType: AppType, completion: @escaping DataCompletionHandler)
@@ -52,6 +53,8 @@ public protocol CertificationProtocol {
     var certTypeString: String { get }
         
     var certHash: String { get }
+    
+    public let body: JSON { get }
     
     var uvciHash: Data? { get }
     var countryCodeUvciHash: Data? { get }
