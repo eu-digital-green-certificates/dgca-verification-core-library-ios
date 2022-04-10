@@ -30,8 +30,6 @@ import SwiftyJSON
 public protocol CertificateInspection {
     var lastUpdate: Date { get }
     
-    init()
-    
     func prepareLocallyStoredData(appType: AppType, completion: @escaping DataCompletionHandler)
     func updateLocallyStoredData(appType: AppType, completion: @escaping DataCompletionHandler)
     func validateCertificate(_ certificate: CertificationProtocol) -> VerifyingProtocol
