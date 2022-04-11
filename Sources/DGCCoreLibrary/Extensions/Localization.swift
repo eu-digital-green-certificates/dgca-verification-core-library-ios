@@ -42,11 +42,6 @@ public func l10n(_ string: String, with comment: String? = nil, or fallback: Str
 
 public extension RawRepresentable where RawValue == String {
     var l10n: String {
-        let key = "enum.\(String(describing: Self.self)).\(rawValue)"
-        let text = NSLocalizedString(key, comment: "Automatic enum case.")
-        if text != key {
-            return text
-        }
         return NSLocalizedString(key, bundle: l10nModule ?? L10N.bundle, comment: "Automatic enum case.")
     }
 }
