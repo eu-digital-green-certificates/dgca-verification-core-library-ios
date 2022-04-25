@@ -32,7 +32,7 @@ public protocol CertificateInspection {
     
     func prepareLocallyStoredData(appType: AppType, completion: @escaping DataCompletionHandler)
     func updateLocallyStoredData(appType: AppType, completion: @escaping DataCompletionHandler)
-    func validateCertificate(_ certificate: CertificationProtocol) -> VerifyingProtocol
+    func validateCertificate(_ certificate: CertificationProtocol) -> ValidityState
 }
 
 public protocol CertificationProtocol {
@@ -63,27 +63,4 @@ public protocol CertificationProtocol {
     var signatureHash: Data? { get }
     
     init(payload: String, ruleCountryCode: String?) throws
-}
-
-public protocol VerifyingProtocol {
-    var technicalValidity: VerificationResult { get }
-    var issuerValidity: VerificationResult { get }
-    var destinationValidity: VerificationResult { get }
-    var travalerValidity: VerificationResult { get }
-    var allRulesValidity: VerificationResult { get }
-    var validityFailures: [String] { get }
-    var isVerificationFailed: Bool { get }
-    var infoSection: InfoSection? { get set }
-    var isRevoked: Bool { get }
-    
-    init(
-        technicalValidity: VerificationResult,
-        issuerValidity: VerificationResult,
-        destinationValidity: VerificationResult,
-        travalerValidity: VerificationResult,
-        allRulesValidity: VerificationResult,
-        validityFailures: [String],
-        infoSection: InfoSection?,
-        isRevoked: Bool
-    )
 }

@@ -28,7 +28,7 @@
 
 import Foundation
 
-public struct ValidityState: VerifyingProtocol {
+public struct ValidityState {
     
     public let technicalValidity: VerificationResult
     public let issuerValidity: VerificationResult
