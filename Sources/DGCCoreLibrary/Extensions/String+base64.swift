@@ -18,7 +18,7 @@ public extension String {
 }
 #endif
 
-extension String {
+public extension String {
     func base64UrlToBase64() -> String {
         var str = self
             .replacingOccurrences(of: "-", with: "+")
