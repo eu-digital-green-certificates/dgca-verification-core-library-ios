@@ -59,12 +59,11 @@ public extension Data {
         let buffer = UnsafeMutablePointer<UInt8>.allocate(capacity: size)
         defer { buffer.deallocate() }
         return withUnsafeBytes { unsafeBytes in
-          let read = compression_decode_buffer(
-            buffer, size,
-            unsafeBytes.baseAddress!.bindMemory(to: UInt8.self, capacity: 1),
-            count, nil, COMPRESSION_ZLIB
-          )
-          return Data(bytes: buffer, count: read)
+            let read = compression_decode_buffer(buffer, size,
+              unsafeBytes.baseAddress!.bindMemory(to: UInt8.self, capacity: 1),
+              count, nil, COMPRESSION_ZLIB
+            )
+            return Data(bytes: buffer, count: read)
         }
     }
 }
@@ -74,11 +73,11 @@ public extension String {
         case base64InvalidCharacter
         case base64InvalidLength
     }
-
+    
     func fromBase45() throws -> Data {
         var dData = Data()
         var oData = Data()
-
+        
         for char in self.uppercased() {
             if let index = b45Charset.firstIndex(of: char) {
                 let idx = b45Charset.distance(from: b45Charset.startIndex, to: index)
