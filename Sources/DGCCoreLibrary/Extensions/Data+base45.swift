@@ -25,10 +25,11 @@
 //
 
 import Foundation
+
 public let b45Charset = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ $%*+-./:"
 
-extension Data {
-    public func toBase45() -> String {
+public extension Data {
+     func toBase45() -> String {
         var out = String()
         for num in stride(from: 0, to: count, by: 2) {
           if self.count - num > 1 {
@@ -52,13 +53,29 @@ extension Data {
     }
 }
 
-extension String {
-    public enum Base45Error: Error {
+public extension Data {
+    func inflateFixed() -> Data {
+        let size = 1024 * 10
+        let buffer = UnsafeMutablePointer<UInt8>.allocate(capacity: size)
+        defer { buffer.deallocate() }
+        return withUnsafeBytes { unsafeBytes in
+          let read = compression_decode_buffer(
+            buffer, size,
+            unsafeBytes.baseAddress!.bindMemory(to: UInt8.self, capacity: 1),
+            count, nil, COMPRESSION_ZLIB
+          )
+          return Data(bytes: buffer, count: read)
+        }
+    }
+}
+
+public extension String {
+     enum Base45Error: Error {
         case base64InvalidCharacter
         case base64InvalidLength
     }
 
-    public func fromBase45() throws -> Data {
+    func fromBase45() throws -> Data {
         var dData = Data()
         var oData = Data()
 
@@ -70,6 +87,7 @@ extension String {
                 throw Base45Error.base64InvalidCharacter
             }
         }
+        
         for num in stride(from: 0, to: dData.count, by: 3) {
             if dData.count - num < 2 {
                 throw Base45Error.base64InvalidLength
