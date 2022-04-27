@@ -40,7 +40,7 @@ public enum ParseError {
 }
 
 public enum CertificateParsingError: Error {
-    case unknown
+    case unknownFormat
     case invalidStructure
     case kidNotIncluded
     case kidNotFound(untrustedUrl: String)
