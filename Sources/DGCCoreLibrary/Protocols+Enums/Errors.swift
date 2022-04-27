@@ -22,5 +22,12 @@ public enum ParseError {
 
 public enum CertificateParsingError: Error {
     case unknown
+    case invalidStructure
+    case kidNotIncluded
+    case kidNotFound(untrustedUrl: String)
+    case issuerNotIncluded
+    case timeBeforeNBF
+    case credentialExpired
+
     case parsing(errors: [ParseError])
 }
