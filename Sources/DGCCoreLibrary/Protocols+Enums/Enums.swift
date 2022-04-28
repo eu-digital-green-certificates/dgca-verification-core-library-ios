@@ -64,3 +64,23 @@ public enum InfoSectionStyle {
     case normal
     case fixedWidthFont
 }
+
+public struct CheckInQR : Codable {
+    public let protocolName    : String
+    public let protocolVersion : String
+    public let serviceIdentity : String
+    public let token           : String
+    public let consent         : String
+    public let subject         : String
+    public let serviceProvider : String
+    
+    private enum CodingKeys: String, CodingKey {
+        case protocolName = "protocol"
+        case protocolVersion
+        case serviceIdentity
+        case token
+        case consent
+        case subject
+        case serviceProvider
+    }
+}
