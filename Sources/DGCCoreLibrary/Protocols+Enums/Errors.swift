@@ -47,5 +47,7 @@ public enum CertificateParsingError: Error {
     case issuerNotIncluded
     case timeBeforeNBF
     case credentialExpired
+    case invalidSignature
+    case badPubKey
     case parsing(errors: [ParseError])
 }
