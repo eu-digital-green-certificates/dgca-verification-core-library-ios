@@ -51,6 +51,7 @@ public protocol CertificationProtocol {
     var cryptographicallyValid: Bool { get }
     
     var isRevoked: Bool { get set }
+    var isUntrusted: Bool { get }
     
     var certTypeString: String { get }
         
