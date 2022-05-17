@@ -62,6 +62,8 @@ public protocol CertificationProtocol {
     var uvciHash: Data? { get }
     var countryCodeUvciHash: Data? { get }
     var signatureHash: Data? { get }
+
+    var certificateCreationDate: String { get }
     
     init(payload: String, ruleCountryCode: String?) throws
 }
