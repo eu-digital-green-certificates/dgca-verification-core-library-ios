@@ -58,7 +58,7 @@ public let attributeKeys: [AttributeKey: [String]] = [
     .dateOfBirth: ["dob"],
     .testStatements: ["t"],
     .vaccineStatements: ["v"],
-    .recoveryStatements: ["r"]
+    .recoveryStatements: ["r"],
     .certificateCreationDate: ["sc"]
 ]
 
