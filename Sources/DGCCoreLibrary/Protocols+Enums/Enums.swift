@@ -64,10 +64,10 @@ public let attributeKeys: [AttributeKey: [String]] = [
     .vaccineStatements: ["v"],
     .recoveryStatements: ["r"],
     .certificateCreationDate: ["sc"],
-    .vaccineValidFrom["dt"],
-    .recoveryValidFrom["df"],
-    .genericCertObject["t", "v", "r"],
-    .creationDate["sc", "dt", "df"]
+    .vaccineValidFrom: ["dt"],
+    .recoveryValidFrom: ["df"],
+    .genericCertObject: ["t", "v", "r"],
+    .creationDate: ["sc", "dt", "df"]
 ]
 
 public enum InfoSectionStyle {
