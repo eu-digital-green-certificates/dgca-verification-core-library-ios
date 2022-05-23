@@ -48,6 +48,10 @@ public enum AttributeKey: String {
     case vaccineStatements
     case recoveryStatements
     case certificateCreationDate
+    case vaccineValidFrom
+    case recoveryValidFrom
+    case genericCertObject
+    case creationDate
 }
 
 public let attributeKeys: [AttributeKey: [String]] = [
@@ -59,7 +63,11 @@ public let attributeKeys: [AttributeKey: [String]] = [
     .testStatements: ["t"],
     .vaccineStatements: ["v"],
     .recoveryStatements: ["r"],
-    .certificateCreationDate: ["sc"]
+    .certificateCreationDate: ["sc"],
+    .vaccineValidFrom["dt"],
+    .recoveryValidFrom["df"],
+    .genericCertObject["t", "v", "r"],
+    .creationDate["sc", "dt", "df"]
 ]
 
 public enum InfoSectionStyle {
