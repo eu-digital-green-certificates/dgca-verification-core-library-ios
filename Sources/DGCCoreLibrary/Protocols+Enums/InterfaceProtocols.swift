@@ -7,10 +7,7 @@
 
 import Foundation
 
-public protocol DismissControllerDelegate: AnyObject {
+public protocol UserActivityDelegate: AnyObject {
     func userDidDissmis(_ controller: AnyObject)
-}
-
-public protocol ShowSettingsDelegate: AnyObject {
     func userOpensSettings(from controller: AnyObject)
 }
