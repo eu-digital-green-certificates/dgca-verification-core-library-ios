@@ -27,7 +27,7 @@
 import Foundation
 import SwiftyJSON
 
-public protocol CertificateInspection {
+public protocol CertificateValidating {
     func validateCertificate(_ certificate: CertificationProtocol) -> ValidityState
 }
 
