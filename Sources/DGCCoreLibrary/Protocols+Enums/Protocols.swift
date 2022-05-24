@@ -28,11 +28,14 @@ import Foundation
 import SwiftyJSON
 
 public protocol CertificateInspection {
+    func validateCertificate(_ certificate: CertificationProtocol) -> ValidityState
+}
+
+public protocol DataLoadingProtocol {
     var lastUpdate: Date { get }
     var downloadedDataHasExpired: Bool { get }
     func prepareLocallyStoredData(appType: AppType, completion: @escaping DataCompletionHandler)
     func updateLocallyStoredData(appType: AppType, completion: @escaping DataCompletionHandler)
-    func validateCertificate(_ certificate: CertificationProtocol) -> ValidityState
 }
 
 public protocol CertificationProtocol {
