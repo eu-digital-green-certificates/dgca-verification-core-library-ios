@@ -28,7 +28,7 @@ import Foundation
 import SwiftyJSON
 
 public protocol CertificateValidating {
-    func validateCertificate(_ certificate: CertificationProtocol) -> ValidityState
+    func validateCertificate(_ certificate: CertificationProtocol) -> ValidityState?
 }
 
 public protocol DataLoadingProtocol {
